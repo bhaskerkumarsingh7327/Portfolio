@@ -30,7 +30,7 @@ export default function Contact() {
 
     setStatus('sending')
     try {
-      const res = await fetch('http://localhost:5001/api/contact', {
+      const res = await fetch('https://portfolio-5wfv.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
