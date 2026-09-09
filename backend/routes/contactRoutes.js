@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 
-const Message = require("../models/message");
+const Message = require("../models/Message");
 
 router.post("/", async (req, res) => {
   try {
