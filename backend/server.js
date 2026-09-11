@@ -70,3 +70,6 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+
+const visitorRoute = require('./routes/visitors')
+app.use('/api/visitors', visitorRoute)
