@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Loader from './components/Loader'
 import MouseTrail from './components/MouseTrail'
 import SocialSidebar from './components/SocialSidebar'
+import Chatbot from './components/Chatbot'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Counter from './components/Counter'
@@ -22,6 +23,7 @@ export default function App() {
         <>
           <MouseTrail />
           <SocialSidebar />
+          <Chatbot />
           <VisitorCounter />
           <Navbar />
           <Hero />
@@ -29,7 +31,7 @@ export default function App() {
           <About />
           <Education />
           <Projects />
-          <GitHubStats username="bhaskerkumarsingh7327" />
+          <GitHubStats username="YOUR_GITHUB_USERNAME" />
           <Contact />
         </>
       )}

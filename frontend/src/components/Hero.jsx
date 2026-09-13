@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import ResumeButton from './ResumeButton'
 
 const roles = ['Full Stack Developer','MERN Stack Engineer','UI/UX Innovator','Problem Architect','Tech Visionary']
 
@@ -79,28 +80,23 @@ export default function Hero() {
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,102,255,0.12) 0%, rgba(0,212,255,0.04) 40%, transparent 70%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.03, pointerEvents: 'none', backgroundImage: 'linear-gradient(#00d4ff 1px,transparent 1px),linear-gradient(90deg,#00d4ff 1px,transparent 1px)', backgroundSize: '80px 80px' }} />
-
-      {/* decorative */}
       <div style={{ position: 'absolute', top: '15%', right: 50, width: 1, height: 100, background: 'linear-gradient(to bottom,transparent,#00d4ff,transparent)', zIndex: 2 }} />
       <div style={{ position: 'absolute', bottom: '20%', left: 50, width: 1, height: 80, background: 'linear-gradient(to bottom,transparent,#0066ff,transparent)', zIndex: 2 }} />
       <div style={{ position: 'absolute', top: 100, left: 60, width: 40, height: 40, border: '1px solid rgba(0,212,255,0.15)', transform: 'rotate(45deg)', zIndex: 2 }} />
       <div style={{ position: 'absolute', bottom: 120, right: 80, width: 28, height: 28, border: '1px solid rgba(0,102,255,0.2)', transform: 'rotate(45deg)', zIndex: 2, animation: 'hFloat 4s ease-in-out infinite' }} />
 
       <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '2rem', maxWidth: 820 }}>
-        {/* badge */}
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.4rem 1.2rem', marginBottom: '2rem', border: '1px solid rgba(0,212,255,0.2)', background: 'rgba(0,212,255,0.04)' }}>
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#00d4ff', animation: 'hPulse 2s infinite' }} />
           <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.68rem', color: '#00d4ff', letterSpacing: 3 }}>SYSTEM ONLINE // BHASKER_OS v2.0</span>
         </div>
 
-        {/* name */}
         <h1 style={{ fontSize: 'clamp(3rem,9vw,7rem)', fontFamily: "'Exo 2',sans-serif", fontWeight: 800, letterSpacing: 6, lineHeight: 1, background: 'linear-gradient(135deg,#ffffff 0%,#00d4ff 50%,#0066ff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.5rem' }}>
           BHASKER
         </h1>
 
         <div style={{ height: 1, margin: '0.5rem auto 1.5rem', background: 'linear-gradient(to right,transparent,#00d4ff,#0066ff,transparent)', opacity: 0.4 }} />
 
-        {/* typewriter */}
         <div style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: 'clamp(0.9rem,2.2vw,1.25rem)', color: '#00ffea', letterSpacing: 3, minHeight: '2rem', marginBottom: '1.5rem' }}>
           {'> '}{displayed}<span style={{ animation: 'hBlink 0.8s infinite' }}>_</span>
         </div>
@@ -110,9 +106,11 @@ export default function Hero() {
           Full Stack Engineer obsessed with clean code and futuristic UX.
         </p>
 
+        {/* Buttons */}
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#projects" className="btn-neo"><span>View Projects</span></a>
-          <a href="#contact" className="btn-neo btn-solid"><span>Hire Me</span></a>
+          <a href="#contact" className="btn-neo btn-blue"><span>Hire Me</span></a>
+          <ResumeButton />
         </div>
 
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '4rem', flexWrap: 'wrap' }}>
