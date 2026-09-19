@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function GitHubStats({ username = 'bhasker' }) {
+export default function GitHubStats({ username = 'bhaskerkumarsingh7327' }) {
   const [stats, setStats] = useState(null)
   const [repos, setRepos] = useState([])
   const [loading, setLoading] = useState(true)
