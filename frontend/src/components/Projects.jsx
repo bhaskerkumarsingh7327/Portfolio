@@ -1,13 +1,49 @@
 import { useEffect, useRef, useState } from 'react'
 
 const projects = [
-  { id:'01', title:'NeuroFolio', desc:'AI-powered futuristic portfolio with chatbot, real-time analytics dashboard, and automated GitHub project sync.', tech:['React','Node.js','MongoDB','OpenAI','Socket.io'], link:'#', github:'#', status:'LIVE', color:'#00d4ff' },
-  { id:'02', title:'ShopCore', desc:'Full-featured e-commerce platform with Stripe payments, Redux cart, admin panel, order tracking and real-time notifications.', tech:['MERN','Stripe','JWT','Redux','Cloudinary'], link:'#', github:'#', status:'LIVE', color:'#0066ff' },
-  { id:'03', title:'NexusChat', desc:'Real-time messaging app with group rooms, file sharing, typing indicators, and end-to-end notification system.', tech:['Socket.io','React','Express','MongoDB','JWT'], link:'#', github:'#', status:'BETA', color:'#00d4ff' },
-  { id:'04', title:'TaskMatrix', desc:'Advanced project management tool with Kanban boards, team collaboration, deadline tracking and automated reporting.', tech:['React','Node.js','MongoDB','Chart.js'], link:'#', github:'#', status:'DEV', color:'#0099cc' },
+  {
+    id: '01',
+    title: 'FitLife',
+    desc: 'A full-featured fitness tracking web application built with MERN stack. Users can track workouts, monitor health goals, and manage their fitness journey with a clean modern UI.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
+    link: 'https://fitlife-1-tk4d.onrender.com',
+    github: 'https://github.com/bhaskerkumarsingh7327/FitLife',
+    status: 'LIVE',
+    color: '#00d4ff',
+  },
+  {
+    id: '02',
+    title: 'RealTime Chat App',
+    desc: 'Real-time messaging application with instant messaging, online user status, and Socket.io powered live communication between users.',
+    tech: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
+    link: 'https://realtimechatapp-frontend-7uv3.onrender.com',
+    github: 'https://github.com/bhaskerkumarsingh7327/REALTIMECHATAPP',
+    status: 'LIVE',
+    color: '#0099cc',
+  },
+  {
+    id: '03',
+    title: 'FoodMeto',
+    desc: 'A food delivery web platform where users can browse restaurants, add items to cart, place orders and track deliveries in real time.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
+    link: 'https://foodmeto-frontend-lbgc.onrender.com',
+    github: 'https://github.com/bhaskerkumarsingh7327/Foodmeto',
+    status: 'LIVE',
+    color: '#0066ff',
+  },
+  {
+    id: '04',
+    title: 'Human Resource',
+    desc: 'A full-featured HR Management System to manage employees, departments, attendance, payroll and leave management with admin dashboard.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
+    link: '#',
+    github: 'https://github.com/bhaskerkumarsingh7327/Human-Resource',
+    status: 'DEV',
+    color: '#00d4ff',
+  },
 ]
 
-const statusColor = { LIVE:'#00ff88', BETA:'#00d4ff', DEV:'#ffaa00' }
+const statusColor = { LIVE: '#00ff88', BETA: '#00d4ff', DEV: '#ffaa00' }
 
 function TiltCard({ children, color }) {
   const cardRef = useRef(null)
@@ -64,7 +100,7 @@ export default function Projects() {
           <div className="section-bar" />
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '1.5rem' }}>
           {projects.map((p, i) => (
             <div key={p.id} style={{ opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(30px)', transition: `all 0.6s ease ${i * 0.12}s` }}>
               <TiltCard color={p.color}>
@@ -72,7 +108,6 @@ export default function Projects() {
                   onMouseEnter={() => setHov(p.id)}
                   onMouseLeave={() => setHov(null)}
                   style={{
-                    /* Glassmorphism */
                     background: 'rgba(10,21,32,0.7)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
@@ -80,9 +115,10 @@ export default function Projects() {
                     padding: '1.8rem',
                     position: 'relative', overflow: 'hidden',
                     transition: 'border-color 0.3s',
+                    height: '100%',
                   }}
                 >
-                  {/* Shimmer overlay */}
+                  {/* Shimmer */}
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(0,212,255,0.04) 0%,transparent 50%,rgba(0,102,255,0.03) 100%)', pointerEvents: 'none' }} />
 
                   {/* Top glow line */}
@@ -92,6 +128,7 @@ export default function Projects() {
                   <div style={{ position: 'absolute', top: 8, left: 8, width: 12, height: 12, borderTop: `1px solid ${p.color}60`, borderLeft: `1px solid ${p.color}60` }} />
                   <div style={{ position: 'absolute', bottom: 8, right: 8, width: 12, height: 12, borderBottom: `1px solid ${p.color}60`, borderRight: `1px solid ${p.color}60` }} />
 
+                  {/* Header */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.7rem', color: 'rgba(0,212,255,0.35)', letterSpacing: 2 }}>_{p.id}</span>
                     <span style={{ padding: '0.2rem 0.6rem', fontSize: '0.62rem', fontFamily: "'Share Tech Mono',monospace", letterSpacing: 2, background: `${statusColor[p.status]}12`, color: statusColor[p.status], border: `1px solid ${statusColor[p.status]}35` }}>{p.status}</span>
@@ -100,15 +137,27 @@ export default function Projects() {
                   <h3 style={{ fontFamily: "'Exo 2',sans-serif", fontWeight: 700, fontSize: '1.1rem', color: hov === p.id ? p.color : '#fff', letterSpacing: 2, marginBottom: '0.8rem', transition: 'color 0.3s' }}>{p.title}</h3>
                   <p style={{ color: 'rgba(200,232,240,0.5)', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.3rem' }}>{p.desc}</p>
 
+                  {/* Tech tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
                     {p.tech.map(t => (
                       <span key={t} style={{ padding: '0.15rem 0.55rem', fontSize: '0.66rem', fontFamily: "'Share Tech Mono',monospace", background: `${p.color}0d`, color: `${p.color}bb`, border: `1px solid ${p.color}20`, letterSpacing: 1 }}>{t}</span>
                     ))}
                   </div>
 
+                  {/* Links */}
                   <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href={p.link} style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.7rem', color: p.color, textDecoration: 'none', letterSpacing: 2, transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.6'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>↗ LIVE</a>
-                    <a href={p.github} style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.7rem', color: 'rgba(200,232,240,0.35)', textDecoration: 'none', letterSpacing: 2, transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(200,232,240,0.35)'}>⌥ CODE</a>
+                    <a href={p.link} target="_blank" rel="noreferrer"
+                      style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.7rem', color: p.color, textDecoration: 'none', letterSpacing: 2, transition: 'opacity 0.2s' }}
+                      onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
+                      onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+                      ↗ LIVE
+                    </a>
+                    <a href={p.github} target="_blank" rel="noreferrer"
+                      style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.7rem', color: 'rgba(200,232,240,0.35)', textDecoration: 'none', letterSpacing: 2, transition: 'color 0.2s' }}
+                      onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                      onMouseLeave={e => e.currentTarget.style.color = 'rgba(200,232,240,0.35)'}>
+                      ⌥ CODE
+                    </a>
                   </div>
                 </div>
               </TiltCard>
@@ -116,8 +165,11 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* GitHub button */}
         <div style={{ textAlign: 'center', marginTop: '3rem', opacity: vis ? 1 : 0, transition: 'opacity 0.8s ease 0.6s' }}>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="btn-neo"><span>View All on GitHub</span></a>
+          <a href="https://github.com/bhaskerkumarsingh7327" target="_blank" rel="noreferrer" className="btn-neo">
+            <span>View All on GitHub</span>
+          </a>
         </div>
       </div>
     </section>
