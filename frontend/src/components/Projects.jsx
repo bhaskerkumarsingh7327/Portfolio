@@ -36,9 +36,9 @@ const projects = [
     title: 'Human Resource',
     desc: 'A full-featured HR Management System to manage employees, departments, attendance, payroll and leave management with admin dashboard.',
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
-    link: '#',
+    link: 'https://human-resource-1-5fje.onrender.com',
     github: 'https://github.com/bhaskerkumarsingh7327/Human-Resource',
-    status: 'DEV',
+    status: 'LIVE',
     color: '#00d4ff',
   },
 ]
