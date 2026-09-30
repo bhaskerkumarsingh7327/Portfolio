@@ -77,3 +77,22 @@ export default function App() {
     </>
   )
 }
+
+// export default function App() {
+//   return (
+//     <div
+//       style={{
+//         minHeight: '100vh',
+//         background: '#020408',
+//         color: '#00d4ff',
+//         display: 'flex',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         fontSize: '40px',
+//         fontFamily: 'Arial',
+//       }}
+//     >
+//       PORTFOLIO TEST
+//     </div>
+//   )
+// }
