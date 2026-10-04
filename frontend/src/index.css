@@ -2,17 +2,13 @@
 
 :root {
   --cyan: #00d4ff;
-  --cyan2: #00ffea;
   --blue: #0066ff;
   --blue2: #003cff;
   --black: #020408;
-  --dark: #060d14;
   --card: #0a1520;
-  --border: rgba(0,212,255,0.15);
-  --border-hover: rgba(0,212,255,0.6);
+  --text: #c8e8f0;
   --glow: rgba(0,212,255,0.25);
   --glow2: rgba(0,102,255,0.2);
-  --text: #c8e8f0;
 }
 
 html { scroll-behavior: smooth; }
@@ -22,6 +18,7 @@ body {
   color: var(--text);
   font-family: 'Rajdhani', sans-serif;
   overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
 }
 
 h1, h2, h3 { font-family: 'Exo 2', sans-serif; }
@@ -72,9 +69,8 @@ h1, h2, h3 { font-family: 'Exo 2', sans-serif; }
 }
 
 /* ==============================
-   BUTTONS
+   BUTTONS — DARK MODE DEFAULT
    ============================== */
-
 .btn-neo {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -108,7 +104,6 @@ h1, h2, h3 { font-family: 'Exo 2', sans-serif; }
   color: #000;
   box-shadow: 0 0 20px var(--cyan), 0 0 40px var(--glow);
 }
-
 .btn-neo span { position: relative; z-index: 1; }
 
 .btn-blue {
@@ -116,34 +111,29 @@ h1, h2, h3 { font-family: 'Exo 2', sans-serif; }
   color: #fff;
   background: linear-gradient(135deg, var(--blue2), var(--blue));
 }
-
 .btn-blue::before {
   background: linear-gradient(135deg, var(--cyan), var(--blue));
 }
-
 .btn-blue:hover {
   color: #fff;
   box-shadow: 0 0 20px var(--blue), 0 0 40px var(--glow2);
 }
 
-@media (max-width: 768px) {
-  nav { padding: 0 1rem !important; }
-}
-
-@media (max-width: 480px) {
-  section { padding: 4rem 1rem !important; }
-}
-
-@keyframes fadeUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
-@keyframes pulse { 0%,100%{box-shadow:0 0 8px var(--cyan);} 50%{box-shadow:0 0 20px var(--cyan),0 0 40px var(--cyan);} }
-@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+/* ==============================
 
 /* ================================
-   LIGHT MODE
+   LIGHT MODE — COMPLETE FIX
    ================================ */
 
 [data-theme="light"] {
-  background: #f0f4f8 !important;
+  --cyan: #0066ff;
+  --blue: #0044cc;
+  --black: #f0f4f8;
+  --dark: #e2e8f0;
+  --card: #ffffff;
+  --text: #1a202c;
+  --border: rgba(0,102,255,0.15);
+  --glow: rgba(0,102,255,0.15);
 }
 
 [data-theme="light"] body {
@@ -151,141 +141,137 @@ h1, h2, h3 { font-family: 'Exo 2', sans-serif; }
   color: #1a202c !important;
 }
 
-/* All sections background */
+/* All sections */
 [data-theme="light"] section {
   background: #f0f4f8 !important;
 }
+[data-theme="light"] #hero { background: linear-gradient(180deg,#e8f0fe 0%,#f0f4f8 100%) !important; }
+[data-theme="light"] #about { background: linear-gradient(180deg,#f0f4f8 0%,#e8f0fe 50%,#f0f4f8 100%) !important; }
+[data-theme="light"] #education { background: linear-gradient(180deg,#e8f0fe 0%,#f0f4f8 100%) !important; }
+[data-theme="light"] #projects { background: #f0f4f8 !important; }
+[data-theme="light"] #contact { background: linear-gradient(180deg,#f0f4f8 0%,#e8f0fe 100%) !important; }
 
-[data-theme="light"] #hero {
-  background: #e8f0fe !important;
-}
-
-[data-theme="light"] #about {
-  background: linear-gradient(180deg,#f0f4f8 0%,#e8f0fe 50%,#f0f4f8 100%) !important;
-}
-
-[data-theme="light"] #education {
-  background: linear-gradient(180deg,#e8f0fe 0%,#f0f4f8 100%) !important;
-}
-
-[data-theme="light"] #projects {
-  background: #f0f4f8 !important;
-}
-
-[data-theme="light"] #contact {
-  background: linear-gradient(180deg,#f0f4f8 0%,#e8f0fe 100%) !important;
-}
-
-/* Cards */
-[data-theme="light"] .glass-card,
-[data-theme="light"] [style*="background: #0a1520"],
-[data-theme="light"] [style*="background: rgba(10,21,32"] {
-  background: #ffffff !important;
-  border-color: rgba(0,102,255,0.2) !important;
-}
-
-/* Text colors */
+/* Typography */
 [data-theme="light"] h1,
 [data-theme="light"] h2,
 [data-theme="light"] h3 {
   color: #1a202c !important;
-  -webkit-text-fill-color: initial !important;
+  -webkit-text-fill-color: #1a202c !important;
+  background: none !important;
 }
 
-[data-theme="light"] p {
-  color: rgba(26,32,44,0.7) !important;
+/* Hero name gradient fix */
+[data-theme="light"] #hero h1 {
+  background: linear-gradient(135deg, #1a202c 0%, #0066ff 60%, #003cff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
-/* Navbar */
-[data-theme="light"] nav {
-  background: rgba(240,244,248,0.95) !important;
-  border-bottom-color: rgba(0,102,255,0.15) !important;
-}
+[data-theme="light"] p { color: rgba(26,32,44,0.65) !important; }
+[data-theme="light"] .section-title { color: #1a202c !important; -webkit-text-fill-color: #1a202c !important; background: none !important; }
+[data-theme="light"] .section-title span { color: #0066ff !important; -webkit-text-fill-color: #0066ff !important; }
+[data-theme="light"] .section-tag { color: #0066ff !important; }
 
-/* Scrollbar */
-[data-theme="light"] ::-webkit-scrollbar-track {
-  background: #f0f4f8 !important;
-}
-
-/* ================================
-   LIGHT MODE — BUTTONS FIX
-   ================================ */
-
+/* BUTTONS — proper fix */
 [data-theme="light"] .btn-neo {
-  border-color: #0066ff !important;
+  border: 1px solid #0066ff !important;
   color: #0066ff !important;
   background: transparent !important;
 }
+[data-theme="light"] .btn-neo::before { background: #0066ff !important; }
+[data-theme="light"] .btn-neo:hover { color: #fff !important; box-shadow: 0 0 16px rgba(0,102,255,0.3) !important; }
+[data-theme="light"] .btn-neo span { color: inherit !important; }
 
-[data-theme="light"] .btn-neo::before {
-  background: #0066ff !important;
-}
-
-[data-theme="light"] .btn-neo:hover {
+/* Hire Me button — NOT pure blue, gradient */
+[data-theme="light"] .btn-neo.btn-blue {
+  border: 1px solid #0044cc !important;
   color: #fff !important;
-  box-shadow: 0 0 20px rgba(0,102,255,0.4) !important;
+  background: linear-gradient(135deg, #0055ee, #0077ff) !important;
+}
+[data-theme="light"] .btn-neo.btn-blue::before { background: linear-gradient(135deg, #0033bb, #0055ee) !important; }
+[data-theme="light"] .btn-neo.btn-blue:hover { color: #fff !important; }
+
+/* Navbar */
+[data-theme="light"] nav {
+  background: rgba(240,244,248,0.97) !important;
+  border-bottom: 1px solid rgba(0,102,255,0.1) !important;
+}
+[data-theme="light"] nav button { color: rgba(26,32,44,0.55) !important; }
+[data-theme="light"] nav span { color: #1a202c !important; }
+
+/* Active pill */
+[data-theme="light"] nav > div:last-child {
+  background: rgba(0,102,255,0.06) !important;
+  border-color: rgba(0,102,255,0.25) !important;
 }
 
-[data-theme="light"] .btn-blue {
-  border-color: #003cff !important;
-  color: #fff !important;
-  background: linear-gradient(135deg, #003cff, #0066ff) !important;
+/* Cards */
+[data-theme="light"] #about div[style*="background: rgba(0,212,255,0.03)"],
+[data-theme="light"] #about div[style*="background: rgba(0,212"] {
+  background: #fff !important;
+  border-color: rgba(0,102,255,0.12) !important;
 }
 
-[data-theme="light"] .btn-blue:hover {
-  color: #fff !important;
-  box-shadow: 0 0 20px rgba(0,102,255,0.5) !important;
+/* Skills bars */
+[data-theme="light"] div[style*="background: rgba(255,255,255,0.05)"] {
+  background: rgba(0,0,0,0.08) !important;
 }
 
-/* Section titles in light mode */
-[data-theme="light"] .section-title {
+/* Tech badges */
+[data-theme="light"] span[style*="background: rgba(0,102,255,0.05)"] {
+  background: rgba(0,102,255,0.08) !important;
+  color: #0066ff !important;
+  border-color: rgba(0,102,255,0.2) !important;
+}
+
+/* Education cards */
+[data-theme="light"] #education div[style*="background: #0a1520"],
+[data-theme="light"] #education div[style*="background: rgba(0,212,255,0.04)"] {
+  background: #fff !important;
+  border-color: rgba(0,102,255,0.15) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+
+/* Project cards */
+[data-theme="light"] #projects div[style*="background: rgba(10,21,32"] {
+  background: #fff !important;
+  border-color: rgba(0,102,255,0.15) !important;
+}
+
+/* Contact section */
+[data-theme="light"] #contact div[style*="background: rgba(0,21,32"] {
+  background: #fff !important;
+  border-color: rgba(0,102,255,0.15) !important;
+}
+[data-theme="light"] #contact input,
+[data-theme="light"] #contact textarea {
+  background: #f8faff !important;
+  color: #1a202c !important;
+  border-color: rgba(0,102,255,0.15) !important;
+}
+
+/* Section divider bars */
+[data-theme="light"] .section-bar {
+  background: linear-gradient(to right, #0044cc, #0066ff, transparent) !important;
+}
+
+/* Visitor counter */
+[data-theme="light"] div[style*="bottom: 24"][style*="right: 24"] {
+  background: rgba(255,255,255,0.97) !important;
+  border-color: rgba(0,102,255,0.2) !important;
   color: #1a202c !important;
 }
 
-[data-theme="light"] .section-title span {
+/* Stats numbers */
+[data-theme="light"] #hero div[style*="color: #00d4ff"] {
   color: #0066ff !important;
 }
 
-[data-theme="light"] .section-tag {
-  color: #0066ff !important;
+/* Typewriter text */
+[data-theme="light"] div[style*="color: #00ffea"] {
+  color: #0055dd !important;
 }
 
-/* Navbar links light mode */
-[data-theme="light"] nav button {
-  color: rgba(26,32,44,0.6) !important;
-}
-
-[data-theme="light"] nav button[style*="color: #00d4ff"],
-[data-theme="light"] nav button[style*="color: rgb(0, 212, 255)"] {
-  color: #0066ff !important;
-}
-
-/* Status badge light mode */
-[data-theme="light"] nav > div:last-child {
-  background: rgba(0,102,255,0.08) !important;
-  border-color: rgba(0,102,255,0.3) !important;
-}
-
-/* Visitor counter light mode */
-[data-theme="light"] div[style*="position: fixed"][style*="bottom: 24"][style*="right: 24"] {
-  background: rgba(255,255,255,0.95) !important;
-  border-color: rgba(0,102,255,0.2) !important;
-}
-
-/* Terminal light mode */
-[data-theme="light"] div[style*="bottom: 140"] {
-  background: rgba(255,255,255,0.97) !important;
-  border-color: rgba(0,102,255,0.3) !important;
-}
-
-/* Chatbot light mode */
-[data-theme="light"] div[style*="bottom: 90"][style*="left: 24"] {
-  background: rgba(255,255,255,0.97) !important;
-}
-
-/* Social sidebar light mode */
-[data-theme="light"] div[style*="position: fixed"][style*="left: 20"] a {
-  border-color: rgba(0,102,255,0.2) !important;
-  color: rgba(0,102,255,0.5) !important;
-  background: rgba(0,102,255,0.02) !important;
-}
+/* Scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #f0f4f8 !important; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #0044cc, #0066ff) !important; }
