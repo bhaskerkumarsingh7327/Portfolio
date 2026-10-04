@@ -36,13 +36,11 @@ export default function Hero() {
     const setSize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
     setSize()
     window.addEventListener('resize', setSize)
-
     const pts = Array.from({ length: 55 }, () => ({
       x: Math.random() * canvas.width, y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
       r: Math.random() * 1.4 + 0.4,
     }))
-
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       pts.forEach(p => {
@@ -86,18 +84,37 @@ export default function Hero() {
       <div style={{ position: 'absolute', bottom: 120, right: 80, width: 28, height: 28, border: '1px solid rgba(0,102,255,0.2)', transform: 'rotate(45deg)', zIndex: 2, animation: 'hFloat 4s ease-in-out infinite' }} />
 
       <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '2rem', maxWidth: 820 }}>
+
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.4rem 1.2rem', marginBottom: '2rem', border: '1px solid rgba(0,212,255,0.2)', background: 'rgba(0,212,255,0.04)' }}>
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#00d4ff', animation: 'hPulse 2s infinite' }} />
           <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.68rem', color: '#00d4ff', letterSpacing: 3 }}>SYSTEM ONLINE // BHASKER_OS v2.0</span>
         </div>
 
-        <h1 style={{ fontSize: 'clamp(3rem,9vw,7rem)', fontFamily: "'Exo 2',sans-serif", fontWeight: 800, letterSpacing: 6, lineHeight: 1, background: 'linear-gradient(135deg,#ffffff 0%,#00d4ff 50%,#0066ff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.5rem' }}>
+        <h1 style={{
+          fontSize: 'clamp(3rem,9vw,7rem)',
+          fontFamily: "'Exo 2',sans-serif",
+          fontWeight: 800, letterSpacing: 6, lineHeight: 1,
+          background: 'linear-gradient(135deg,#ffffff 0%,#00d4ff 50%,#0066ff 100%)',
+          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+          marginBottom: '0.5rem',
+        }}>
           BHASKER
         </h1>
 
         <div style={{ height: 1, margin: '0.5rem auto 1.5rem', background: 'linear-gradient(to right,transparent,#00d4ff,#0066ff,transparent)', opacity: 0.4 }} />
 
-        <div style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: 'clamp(0.9rem,2.2vw,1.25rem)', color: '#00ffea', letterSpacing: 3, minHeight: '2rem', marginBottom: '1.5rem' }}>
+        {/* Typewriter — class added for light mode targeting */}
+        <div
+          className="typewriter-text"
+          style={{
+            fontFamily: "'Share Tech Mono',monospace",
+            fontSize: 'clamp(0.9rem,2.2vw,1.25rem)',
+            color: '#00ffea',
+            letterSpacing: 3,
+            minHeight: '2rem',
+            marginBottom: '1.5rem',
+          }}
+        >
           {'> '}{displayed}<span style={{ animation: 'hBlink 0.8s infinite' }}>_</span>
         </div>
 
@@ -106,8 +123,7 @@ export default function Hero() {
           Full Stack Engineer obsessed with clean code and futuristic UX.
         </p>
 
-        {/* Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
           <a href="#projects" className="btn-neo"><span>View Projects</span></a>
           <a href="#contact" className="btn-neo btn-blue"><span>Hire Me</span></a>
           <ResumeButton />
@@ -116,7 +132,7 @@ export default function Hero() {
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '4rem', flexWrap: 'wrap' }}>
           {[['10+','Projects Built'],['2+','Years Exp.'],['15+','Technologies'],['100%','Dedication']].map(([v,l]) => (
             <div key={l} style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: "'Exo 2',sans-serif", fontWeight: 800, fontSize: '1.8rem', color: '#00d4ff', lineHeight: 1 }}>{v}</div>
+              <div className="stat-number" style={{ fontFamily: "'Exo 2',sans-serif", fontWeight: 800, fontSize: '1.8rem', color: '#00d4ff', lineHeight: 1 }}>{v}</div>
               <div style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.62rem', color: 'rgba(200,232,240,0.35)', letterSpacing: 2, marginTop: 6 }}>{l}</div>
             </div>
           ))}
@@ -124,14 +140,15 @@ export default function Hero() {
       </div>
 
       <div style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-        <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.6rem', color: 'rgba(0,212,255,0.35)', letterSpacing: 3 }}>SCROLL</span>
-        <div style={{ width: 1, height: 36, background: 'linear-gradient(to bottom,#00d4ff,transparent)', animation: 'hFloat 2s ease-in-out infinite' }} />
+        <span className="scroll-text" style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.6rem', color: 'rgba(0,212,255,0.35)', letterSpacing: 3 }}>SCROLL</span>
+        <div style={{ width: 1, height: 36, background: 'linear-gradient(to bottom,#00d4ff,transparent)', animation: 'hFloatSimple 2s ease-in-out infinite' }} />
       </div>
 
       <style>{`
         @keyframes hPulse{0%,100%{box-shadow:0 0 6px #00d4ff;}50%{box-shadow:0 0 18px #00d4ff,0 0 32px rgba(0,212,255,0.4);}}
         @keyframes hBlink{0%,100%{opacity:1;}50%{opacity:0;}}
         @keyframes hFloat{0%,100%{transform:translateY(0) rotate(45deg);}50%{transform:translateY(-8px) rotate(45deg);}}
+        @keyframes hFloatSimple{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
       `}</style>
     </section>
   )
